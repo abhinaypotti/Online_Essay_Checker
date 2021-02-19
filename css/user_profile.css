@@ -1,0 +1,62 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@300;800&family=Raleway&display=swap');
+
+body{
+    background-color: #fffaef;
+    margin: 0%;
+}
+
+.header {
+    padding: 2px;
+    text-align: left;
+    background: #919191;
+    color: #edb63b;
+    font-size: 12px;
+}
+.header h1{
+    display: inline;
+    margin-bottom: 10px;
+}
+
+.header img{
+    height: 10vh;
+    padding-top: 15px;
+    padding-left: 85vw;
+    display: inline-block;
+}
+
+.profile{
+    padding: 20px;
+    margin: 20px;
+}
+
+.profile img{
+    height: 20vh;
+    display: inline-block;
+}
+.profile-details{
+    display: inline-block;
+    margin-left: 50px;
+    padding-bottom: 25px;
+    line-height: 10px;
+    vertical-align: bottom;
+    font-family: 'Poppins', sans-serif;
+}
+
+.grid-container{
+    display: grid;
+    margin: 20px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    grid-template-columns: auto auto auto auto;
+}
+.grid-item{
+    background: #e4d2aa;
+    padding:20px;
+    font-family: 'Poppins', sans-serif;
+}
+.grid-item content{
+    margin-bottom: 5px;
+}
+.grid-item date{
+    align-self: flex-end;
+}
