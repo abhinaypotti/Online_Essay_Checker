@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@300;800&family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Yeseva One');
 
 body{
     background-color: #fffaef;
@@ -60,3 +61,107 @@ body{
 .grid-item date{
     align-self: flex-end;
 }
+
+.essay-content{
+margin-top: 15%;
+display: flex;
+flex-wrap: wrap;
+height: 650px;
+overflow: scroll;
+padding-right: 20px;
+}
+
+.disp-text{
+    background-color: #e4d2aa;
+    margin-left:80px; 
+    width:514.8px; 
+    margin-top: 5%;
+    height:600px;
+    float: left;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.disp-text textarea{
+    border:none;
+    background-color: #e4d2aa;
+    width:80%; 
+    height:80%;
+    margin-top: 30px;
+    margin-left: 15px;
+    padding-right: 5px;
+}
+
+.disp-text h6{
+    
+        background-color: #e4d2aa;
+        margin-top: 30px;
+        margin-left: 15px;
+        border:none;
+    
+}
+
+#analyse-text{
+    background-color: #282828;
+    font-family: 'Poppins', sans-serif;
+    float: left;
+    
+    height: 600px;
+    color: beige;
+    margin-left: 110px;  
+    padding: 5px;
+    margin-bottom: 50px;  
+}
+
+#analyse-text h6{
+    background-color:  #282828;
+    margin-left: 20px;
+}
+
+mark{
+    margin-left: 20px;
+    
+ color: white;
+}
+
+ #disp-analyse-text::-webkit-scrollbar{
+     width: 10px;
+ }
+ 
+ #disp-analyse-text::-webkit-scrollbar-track {
+   background:#282828 ; 
+  }
+   
+  /* Handle */
+  #disp-analyse-text::-webkit-scrollbar-thumb {
+    background:#888888; 
+  }
+
+  #disp-analyse-text{
+      overflow: scroll;
+      height: 500px;
+      width: 480px;
+  }
+  
+  .circle{
+    width: 70px;
+    height: 70px;
+   float: right;
+    /* (B) 50% RADIUS = CIRCLE */
+    border-radius: 50%;
+   
+    /* (C) BACKGROUND COLOR */
+    background: #888888;
+    text-align: center;
+  }
+  .circle-txt {
+    /* (E1) CENTER TEXT IN CIRCLE */
+    position: absolute;
+    bottom: 50%;
+    width: 100%;
+    text-align: center;
+   vertical-align: middle;
+    /* (E2) THE FONT - NOT REALLY IMPORTANT */
+    font-weight: bold;
+  }
