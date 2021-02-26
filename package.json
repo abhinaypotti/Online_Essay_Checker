@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "requirejs": "^2.3.6",
+    "synonyms": "^1.0.1"
+  }
+}

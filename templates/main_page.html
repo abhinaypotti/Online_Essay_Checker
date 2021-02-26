@@ -1,0 +1,251 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VRite4U</title>
+    <link rel="stylesheet" href="{% static '/css/user_profile.css' %}">
+    <script src="{% static '/javascript/user_profile.js' %}"></script>
+    <!-- <link rel="stylesheet" href="{% static '/css/right_click.css' %}" -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <style type="text/css">
+      .context-menu { 
+        position: absolute; 
+        text-align: center; 
+        background: lightgray; 
+        border: 1px solid black; 
+    } 
+    
+    .context-menu ul { 
+        padding: 0px; 
+        margin: 0px; 
+        min-width: 150px; 
+        list-style: none; 
+    } 
+    
+    .context-menu ul li { 
+        padding-bottom: 7px; 
+        padding-top: 7px; 
+        border: 1px solid black; 
+    } 
+    
+    .context-menu ul li a { 
+        text-decoration: none; 
+        color: black; 
+    } 
+    
+    .context-menu ul li:hover { 
+        background: darkgray; 
+    } 
+    
+    </style>
+</head>
+<body>
+    <!-- <div class="header">
+        <h1>VRite4U</h1>
+        <img src = "../images/user_icon.png" alt = "user_icon">
+    </div>  -->
+    <nav class="navbar navbar-expand-lg" style="background-color: #888888">
+        <a class="navbar-brand" href="#" style="color:#f4c430; font-family:'Yeseva One'; "><strong>VRite4U</strong></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNavDropdown" style="margin-left: 85%;">
+            <ul class="navbar-nav navbar-right">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                      <img src = "{% static '/images/user_icon.png' %}" width="50px" height="50px" alt = "user_icon">
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                      <!-- <form action="/../profile" method="GET" id="formpro"> -->
+                      <a class="dropdown-item" href="/../templates/user_profile.html?email={{email}}" >Profile</a>
+                      <!-- <p name="email">{{email}}</p> -->
+                      <!-- <a class="dropdown-item" href="{% url 'about' %}">About</a> -->
+                      <!-- </form> -->
+                      <a class="dropdown-item" href="{% url 'about' %}">About</a>
+                      
+                      <a class="dropdown-item" href="{% url 'log' %}">Log out</a>
+                    </div>
+                  </li>
+            </ul>
+        </div>
+      </nav>
+     
+      <div id="essay-content">
+        <form action="/../check" method="GET">
+          <div id="input-text" class="disp-text">
+            
+            <textarea placeholder="Type your essay here" name="para" id="tarea" >
+             {{content}}
+            </textarea>
+            <!-- <p contenteditable="true" name='para'>{{content}}</p> -->
+            <!-- <input type="text" name="fun" /> -->
+            <div class="button-img" style="display:inline-flex;position:relative; margin-top:30px;">
+              <div style="margin-left:40px;">
+                <img src="{% static '/images/upload.png' %}">
+              </div>
+              <div style="margin-left:310px;">
+                
+                <button type="submit" >
+                  <img src="{% static '/images/checkbutton.png' %}" />
+                  </button>
+                  </form>
+                
+                
+              </div>
+            </div>
+          </div>
+          
+          
+          <div id="analyse-text" class="disp-text">
+            
+            <div id="disp-analyse-text">
+              <h6 data-toggle="collapse" data-target="#demo"><strong>Corrections  <i class="fa fa-angle-down" style="font-size:24px;color:white"></i></strong></h6>
+              <!-- <button data-toggle="collapse" data-target="#demo">Collapsible</button> -->
+              <ul style="margin-top:30px;list-style-type:none;" id="demo" class="collapse">
+                {% for rule,val in finals.items %}
+                <li>
+                  <img src="{% static '/images/wrong.png'%}" >
+                  {{val.first}} <b>{{val.error_text}}</b> {{val.last}}
+                  
+
+                  <!-- Delectus iste autem odit eum ipsam similique veritatis aspernatur. -->
+                </li>
+                <li>
+                  <img src="{% static '/images/correct.png' %}" style="float:left;">
+                  {{val.corr}}
+                </li>
+                <br>
+                {% endfor %}
+              </ul>
+              
+
+              <h6 data-toggle="collapse" data-target="#demo1"><strong>Themes Identified  <i class="fa fa-angle-down" style="font-size:24px;color:white"></i></strong> </h6>
+              <br>
+              <div class="themes" id="demo1" class="collapse">
+                <mark style="background-color: #888888;">Lorem</mark>
+                <mark style="background-color: #888888;">ipsum</mark>
+              </div>
+              <h6 data-toggle="collapse" data-target="#demo2"><strong>Links Suggestion <i class="fa fa-angle-down" style="font-size:24px;color:white"></i></strong></h6>
+              <br>
+              <ul style="margin-left: 30px;" class="collapse" id="demo2">
+                {% for link in links %}
+                <li><a href="{{link}}" target="_blank">{{link}}</a></li>
+                {% endfor %}
+              </ul>
+              <h6 data-toggle="collapse" data-target="#demo3"><strong>Synonyms/Phrases <i class="fa fa-angle-down" style="font-size:24px;color:white"></i></strong></h6>
+              <br>
+              <div id="demo3" class="collapse">
+                {{syn}}
+                <mark style="background-color: #888888;">dolor</mark>
+                <mark style="background-color: #888888;">sit</mark>
+                <mark style="background-color: #888888;">amet</mark>
+                <br><br>
+                <mark style="background-color: #888888;">dolor</mark>
+                <mark style="background-color: #888888;">sit</mark>
+                <mark style="background-color: #888888;">amet</mark>
+                <br><br>
+                
+              </div>
+            </div>
+            <div class="button-img" >
+              
+              <div style="margin-left:40px;margin-top:40px;float:left">
+                <img src="{% static '/images/download.png' %}">
+              </div>
+              <div class="circle">
+                <p style="margin-top: 20px;"><strong>{{score}}/100</strong></p>
+              </div>
+            </div>
+          </div>
+      </div>
+      
+    </div>
+    <div id="contextMenu" class="context-menu" 
+        style="display:none"> 
+        <ul> 
+          <form id="formd" method="GET" action="meaning">  
+          <li name="cvcv"><a id="ele1" name="eles" onclick="dispmean()" >Element-1</a></li> 
+        </form>
+        </ul> 
+    </div> 
+    
+    <script> 
+      document.onclick = hideMenu; 
+      document.oncontextmenu = rightClick; 
+
+      function hideMenu() { 
+          document.getElementById( 
+              "contextMenu").style.display = "none" 
+      } 
+
+      function rightClick(e) { 
+          e.preventDefault(); 
+          var txtarea = document.getElementById("tarea");
+          // obtain the index of the first selected character
+          var start = txtarea.selectionStart;
+    // obtain the index of the last selected character
+          var finish = txtarea.selectionEnd;
+    // obtain the selected text
+          var sel = txtarea.value.substring(start, finish);
+          console.log(sel);
+          //document.getElementById("ele1").innerHTML = "lookup '" + sel+"'";
+          document.getElementById("ele1").innerHTML = sel;
+          //var synonyms = require("synonyms");
+          //var x = synonyms(sel);
+          //console.log(x);
+          //VHrdoPIUAFMEGxLacGOC
+          var s = document.createElement("script"); 
+s.src = "http://thesaurus.altervista.org/thesaurus/v1?word="+sel+"&language=en_US&output=json&key=VHrdoPIUAFMEGxLacGOC&callback=process"; // NOTE: replace test_only with your own KEY 
+document.getElementsByTagName("head")[0].appendChild(s);
+          if (document.getElementById( 
+              "contextMenu").style.display == "block") 
+              hideMenu(); 
+          else { 
+              var menu = document 
+                  .getElementById("contextMenu") 
+                    
+              menu.style.display = 'block'; 
+              menu.style.left = e.pageX + "px"; 
+              menu.style.top = e.pageY + "px"; 
+          } 
+      } 
+      function process(result) { 
+        output = ""; 
+        for (key in result.response) { 
+          list = result.response[key].list; 
+          output += list.synonyms+"<br>"; 
+        } 
+        if (output) {
+          document.getElementById("ele1").innerHTML = output; 
+        }
+      }
+      function process1(result) { 
+        output = ""; 
+        for (key in result.response) { 
+          list = result.response[key].list; 
+          output += list.synonyms+"<br>"; 
+        } 
+        if (output) {
+          document.getElementById("ele1").innerHTML = output; 
+        }
+      }
+      
+      function dispmean(){
+        process1(document.getElementById("ele1"));
+      }
+  </script> 
+    
+    
+</body>
+
+
+
+</html>

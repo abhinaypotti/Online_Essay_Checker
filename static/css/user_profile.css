@@ -1,0 +1,291 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@300;800&family=Raleway&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Yeseva One');
+
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+body{
+    background-color: #fffaef;
+    margin: 0%;
+}
+
+.header {
+    padding: 2px;
+    text-align: left;
+    background: #919191;
+    color: #edb63b;
+    font-size: 12px;
+}
+.header h1{
+    display: inline;
+    margin-bottom: 10px;
+}
+
+.header img{
+    height: 10vh;
+    padding-top: 15px;
+    padding-left: 85vw;
+    display: inline-block;
+}
+
+.profile{
+    padding: 20px;
+    margin: 20px;
+}
+
+.profile img{
+    height: 20vh;
+    display: inline-block;
+}
+.profile-details{
+    display: inline-block;
+    margin-left: 50px;
+    padding-bottom: 25px;
+    line-height: 10px;
+    vertical-align: bottom;
+    font-family: 'Poppins', sans-serif;
+}
+
+.grid-container{
+    display: grid;
+    margin: 20px;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    grid-template-columns: auto auto auto auto;
+}
+.grid-item{
+    background: #e4d2aa;
+    padding:20px;
+    font-family: 'Poppins', sans-serif;
+}
+.grid-item content{
+    margin-bottom: 5px;
+}
+.grid-item date{
+    align-self: flex-end;
+}
+
+.essay-content{
+margin-top: 15%;
+display: flex;
+flex-wrap: wrap;
+height: 650px;
+overflow: scroll;
+padding-right: 20px;
+}
+
+.disp-text{
+    background-color: #e4d2aa;
+    margin-left:80px; 
+    width:514.8px; 
+    margin-top: 5%;
+    height:600px;
+    float: left;
+    font-family: 'Poppins', sans-serif;
+    border-radius: 10px;
+    margin-bottom: 50px;
+}
+
+.disp-text textarea{
+    border:none;
+    background-color: #e4d2aa;
+    width:80%; 
+    height:80%;
+    margin-top: 30px;
+    margin-left: 15px;
+    padding-right: 5px;
+}
+
+.disp-text h6{
+    
+        background-color: #e4d2aa;
+        margin-top: 30px;
+        margin-left: 15px;
+        border:none;
+    
+}
+
+#analyse-text{
+    background-color: #282828;
+    font-family: 'Poppins', sans-serif;
+    float: left;
+    
+    height: 600px;
+    color: beige;
+    margin-left: 110px;  
+    padding: 5px;
+    margin-bottom: 50px;  
+}
+
+#analyse-text h6{
+    background-color:  #282828;
+    margin-left: 20px;
+}
+
+mark{
+    margin-left: 20px;
+    
+ color: white;
+}
+
+ #disp-analyse-text::-webkit-scrollbar{
+     width: 10px;
+ }
+ 
+ #disp-analyse-text::-webkit-scrollbar-track {
+   background:#282828 ; 
+  }
+   
+  /* Handle */
+  #disp-analyse-text::-webkit-scrollbar-thumb {
+    background:#888888; 
+  }
+
+  #disp-analyse-text{
+      overflow: scroll;
+      height: 500px;
+      width: 480px;
+  }
+  
+  .circle{
+    width: 70px;
+    height: 70px;
+   float: right;
+    /* (B) 50% RADIUS = CIRCLE */
+    border-radius: 50%;
+   
+    /* (C) BACKGROUND COLOR */
+    background: #888888;
+    text-align: center;
+  }
+  .circle-txt {
+    /* (E1) CENTER TEXT IN CIRCLE */
+    position: absolute;
+    bottom: 50%;
+    width: 100%;
+    text-align: center;
+   vertical-align: middle;
+    /* (E2) THE FONT - NOT REALLY IMPORTANT */
+    font-weight: bold;
+  }
+
+
+  #forgot-pass {
+    color: #919191;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10pt;
+    margin-top: 3px;
+    text-align: right;
+  }
+  #card {
+    background: #e4d2aa;
+    border-radius: 8px;
+    height: 380px;
+    margin: 6rem auto 8.1rem auto;
+    width: 329px;
+    padding: 10px;
+  }
+  #card-content {
+    padding: 12px 44px;
+  }
+  #signup {
+    color: #919191;
+    font-family: 'Poppins', sans-serif;
+    font-size: 10pt;
+    margin-top: 16px;
+    text-align: center;
+  }
+  #submit-btn {
+    background: #717273;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 1px 8px #919191;
+    cursor: pointer;
+    color: white;
+    font-family: 'Poppins', sans-serif;
+    height: 42.3px;
+    margin: 0 auto;
+    margin-top: 50px;
+    transition: 0.25s;
+    width: 153px;
+  }
+  #submit-btn:hover {
+    box-shadow: 0px 1px 18px #717273;
+  }
+  .form {
+    align-items: left;
+    display: flex;
+    flex-direction: column;
+    padding-top: 30px;
+  }
+  .form-border {
+    border-top: solid 1px #717273;
+    height: 1px;
+    width: 100%;
+    padding-bottom: 30px;
+  }
+  .form-content {
+    background: #e4d2aa;
+    border: none;
+    outline: none;
+    padding-top: 14px;
+  }
+
+  #content{
+    
+    animation: 1s ease-out 0s 1 slideInFromBottom;
+  }
+  #about-us{
+    color: #fffaef;
+    font: size 50px;
+    float:left;
+    margin-left:10%;
+    margin-top: 7%;
+    border-radius: 5px;
+    background-color: #edb63b;
+    animation: 1s ease-out 0s 1 slideInFromBottom;
+    width: 700px;
+    font-family: 'Poppins', sans-serif;
+    font-weight:800;
+    height: 470px;
+    padding: 20px 10px 5px 15px;
+  }
+
+  #about-us h3{
+    margin-left: 40%;
+    font-size: 30px;
+  }
+
+  #about-us ul{
+    float: left;
+    list-style: none;
+    text-align:center;
+    margin-left: 25%;
+  }
+
+  #logo-title{
+    color:#edb63b;
+    font: size 50px;
+    float:left;
+    margin-left:10%;
+    margin-top: 7%;
+    height: 470px;
+    animation: 1s ease-out 0s 1 slideInFromBottom;
+    padding-top: 5%;
+    font-family:'Yeseva One';
+  }
+
+
+  #logo-title h1{
+    font-size: 60px;
+  }
+
+  #logo-title img{
+    margin-left: 20%;
+  }
