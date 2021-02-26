@@ -1,14 +1,14 @@
 # Online_Essay_Checker
 
 Requirements:
-pip install virtualenv-wrapper
-mkvirtualenv atlassian
-pip install pyrebase
-pip install language_tool_python
-pip install spacy
-pip install beautifulsoup4
-pip install google
-pip install PyDictionary
+- pip install virtualenv-wrapper
+- mkvirtualenv atlassian
+- pip install pyrebase
+- pip install language_tool_python
+- pip install spacy
+- pip install beautifulsoup4
+- pip install google
+- pip install PyDictionary
 
 install everything in virtual env...
 Steps
