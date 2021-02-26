@@ -10,15 +10,15 @@ Requirements:
 - pip install google
 - pip install PyDictionary
 
-install everything in virtual env...
-Steps
-mac:
-  source atlassian/bin/activate
-windows:
-  workon atlassian
-go to directory (to manage.py file)
-python manage.py runserver
+## install everything in virtual env...
+## Steps
+# mac:
+  - source atlassian/bin/activate
+# windows:
+  - workon atlassian
+- go to directory (to manage.py file)
+- python manage.py runserver
 
-go to browser
-open localhost:8000/
+- go to browser
+- open localhost:8000/
 
