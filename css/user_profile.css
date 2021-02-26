@@ -1,6 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@300;800&family=Raleway&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Yeseva One');
 
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
 body{
     background-color: #fffaef;
     margin: 0%;
@@ -226,4 +235,57 @@ mark{
     border: none;
     outline: none;
     padding-top: 14px;
+  }
+
+  #content{
+    
+    animation: 1s ease-out 0s 1 slideInFromBottom;
+  }
+  #about-us{
+    color: #fffaef;
+    font: size 50px;
+    float:left;
+    margin-left:10%;
+    margin-top: 7%;
+    border-radius: 5px;
+    background-color: #edb63b;
+    animation: 1s ease-out 0s 1 slideInFromBottom;
+    width: 700px;
+    font-family: 'Poppins', sans-serif;
+    font-weight:800;
+    height: 470px;
+    padding: 20px 10px 5px 15px;
+  }
+
+  #about-us h3{
+    margin-left: 40%;
+    font-size: 30px;
+  }
+
+  #about-us ul{
+    float: left;
+    list-style: none;
+    text-align:center;
+    margin-left: 25%;
+  }
+
+  #logo-title{
+    color:#edb63b;
+    font: size 50px;
+    float:left;
+    margin-left:10%;
+    margin-top: 7%;
+    height: 470px;
+    animation: 1s ease-out 0s 1 slideInFromBottom;
+    padding-top: 5%;
+    font-family:'Yeseva One';
+  }
+
+
+  #logo-title h1{
+    font-size: 60px;
+  }
+
+  #logo-title img{
+    margin-left: 20%;
   }
