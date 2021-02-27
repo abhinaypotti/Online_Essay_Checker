@@ -25,7 +25,7 @@
         position: absolute; 
         text-align: center; 
         background: lightgray; 
-        /* border: 1px solid black;  */
+        border: 1px solid black; 
     } 
     
     .context-menu ul { 
@@ -38,7 +38,7 @@
     .context-menu ul li { 
         padding-bottom: 7px; 
         padding-top: 7px; 
-        /* border: 1px solid black;  */
+        border: 1px solid black; 
     } 
     
     .context-menu ul li a { 
@@ -62,6 +62,23 @@
     width: 80px;
     }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $(document).ajaxStart(function(){
+          $("#wait").css("display", "block");
+        });
+        $(document).ajaxComplete(function(){
+          $("#wait").css("display", "none");
+        });
+        $("button").click(function(){
+          $("#txt").load("main_page.html");
+        });
+        $("#dd").click(function(){
+          $("#txt").load("main_page.html");
+        });
+      });
+      </script>
 </head>
 <body>
     <!-- <div class="header">
@@ -99,7 +116,7 @@
         <form action="/../check" method="GET" enctype="multipart/form-data">
           <div id="input-text" class="disp-text">
             
-            <textarea placeholder="Type your essay here" name="para" id="tarea" style="padding-left: 40px;">
+            <textarea placeholder="Type your essay here" name="para" id="tarea" >
              {{content}}
             </textarea>
             <!-- <p contenteditable="true" name='para'>{{content}}</p> -->
@@ -112,17 +129,23 @@
               </div>
 
               <div style="margin-left:270px;" id="submit-button">  
-                <button type="submit" style="background: url(../static/images/checkbutton.png); width: 88px; height: 35px; border-radius: 3px; border:none;">
-                  <!-- <img src="{% static '/images/checkbutton.png' %}"  /> -->
+                <button type="submit" id="dd" >
+                  <img src="{% static '/images/checkbutton.png' %}" />
                 </button>
               </div>
+              <!-- <div id="wait" style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;"><img src="{% static 'images/logo.png' %}" width="64" height="64" /><br>Loading..</div> -->
+
+
 
             </div>
 
           </div>
         </form>
+      <div id="wait" style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left: 43%;padding:2px;"><img src="{% static 'images/EssayChecker.jpg' %}" width="64" height="64" /><br>Loading..</div>
+
       </div>        
                 
+      <!-- <div id="wait" style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left:50%;padding:2px;"><img src="{% static 'images/logo.png' %}" width="64" height="64" /><br>Loading..</div> -->
               
             
           
@@ -136,14 +159,14 @@
               <ul style="margin-top:30px;list-style-type:none;" id="demo" class="collapse">
                 {% for rule,val in finals.items %}
                 <li>
-                  <img src="{% static '/images/wrong.png'%}" style="border-radius:100%;" >
+                  <img src="{% static '/images/wrong.png'%}" >
                   {{val.first}} <b>{{val.error_text}}</b> {{val.last}}
                   
 
                   <!-- Delectus iste autem odit eum ipsam similique veritatis aspernatur. -->
                 </li>
                 <li>
-                  <img src="{% static '/images/correct.png' %}" style="float:left; border-radius: 100%;">
+                  <img src="{% static '/images/correct.png' %}" style="float:left;">
                   {{val.corr}}
                 </li>
                 <br>
@@ -153,9 +176,9 @@
 
               <h6 data-toggle="collapse" data-target="#demo1"><strong>Themes Identified  <i class="fa fa-angle-down" style="font-size:24px;color:white"></i></strong> </h6>
               <br>
-              <div class="themes" id="demo1" class="collapse" style="margin-left: 40px;">
+              <div class="themes" id="demo1" class="collapse">
                 {% for theme in themes%}
-                <button type="button" class="btn btn-secondary" id="theme-id" onclick="findlink(this);" style="margin-top: 10px; ">{{theme}}</button>
+                <button type="button" class="btn btn-secondary" id="theme-id" onclick="findlink(this);" style="margin-top: 20px; margin: left 40px;">{{theme}}</button>
                 {% endfor %}
               </div>
               <h6 data-toggle="collapse" data-target="#demo2"><strong>Links Suggestion <i class="fa fa-angle-down" style="font-size:24px;color:white"></i></strong></h6>
@@ -173,7 +196,7 @@
               <div style="margin-left:40px;margin-top:40px;float:left">
                 <img src="{% static '/images/download.png' %}" onclick="downloadfile();">
               </div>
-              <div class="circle" style="margin-top: 15px; margin-right: 20px;">
+              <div class="circle">
                 <p style="margin-top: 20px;"><strong>{{score}}/100</strong></p>
               </div>
             </div>
@@ -191,9 +214,8 @@
     </div> 
     
     <script> 
-      var txtarea = document.getElementById("tarea");
-      txtarea.onclick = hideMenu; 
-      txtarea.oncontextmenu = rightClick; 
+      document.onclick = hideMenu; 
+      document.oncontextmenu = rightClick; 
 
       function hideMenu() { 
           document.getElementById( 
