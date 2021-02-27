@@ -175,36 +175,6 @@ def ner(unseen_document): #named entity
       queries.add(ent.text)
   return queries #txt of named entities
 
-"""
-def clustering(unseen_document):
-  stopwords = nltk.corpus.stopwords.words('english')
-
-  def tokenize_only(text):
-    # first tokenize by sentence, then by word to ensure that punctuation is caught as it's own token
-      tokens = [word.lower() for sent in nltk.sent_tokenize(text) for word in nltk.word_tokenize(sent)]
-      filtered_tokens = []
-    # filter out any tokens not containing letters (e.g., numeric tokens, raw punctuation)
-      for token in tokens:
-          if re.search('[a-zA-Z]', token):
-              filtered_tokens.append(token)
-      return filtered_tokens
-
-  totalvocab_tokenized = []
-  for i in unseen_document:   
-      allwords_tokenized = tokenize_only(i)
-      totalvocab_tokenized.extend(allwords_tokenized)
-
-#define vectorizer parameters
-  tfidf_vectorizer = TfidfVectorizer(max_df=0.8, max_features=200000,
-                                   min_df=0.2, stop_words='english',
-                                   use_idf=True, tokenizer=tokenize_only, ngram_range=(1,3)) 
-
-  tfidf_matrix = tfidf_vectorizer.fit_transform(unseen_document.split('\n\n')) #fit the vectorizer to synopses
-
-  terms = tfidf_vectorizer.get_feature_names()
-  return terms
-"""
-
 def scrape_helper(url,text):
   page = requests.get(url)
   soup = BeautifulSoup(page.content, 'html.parser') #DOM retrieval
@@ -259,6 +229,7 @@ def scrape_queries(q,unseen_document):
   return to_ret
 
 def textProcessing(doc):
+    # Reference: https://github.com/AjayJohnAlex/Keyword-Extraction/blob/master/model.py
     '''Prepocessing of input text with 
     1. tokenisation and Lemmatisation
     2. Removing stop words 
