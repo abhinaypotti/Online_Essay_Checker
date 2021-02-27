@@ -58,6 +58,23 @@
     width: 80px;
     }
     </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+      $(document).ready(function(){
+        $(document).ajaxStart(function(){
+          $("#wait").css("display", "block");
+        });
+        $(document).ajaxComplete(function(){
+          $("#wait").css("display", "none");
+        });
+        $("button").click(function(){
+          $("#txt").load("main_page.html");
+        });
+        $("#dd").click(function(){
+          $("#txt").load("main_page.html");
+        });
+      });
+      </script>
 </head>
 <body>
     <!-- <div class="header">
@@ -122,7 +139,9 @@
        
       </div>        
                 
-              
+      <div id="wait" style="display:none;width:69px;height:89px;border:1px solid black;position:absolute;top:50%;left: 43%;padding:2px;"><img src="{% static 'images/EssayChecker.jpg' %}" width="64" height="64" /><br>Loading..</div>
+
+      </div>   
             
           
           
