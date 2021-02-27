@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VRite4U</title>
-    <link rel="stylesheet" href="../css/user_profile.css">
+    <link rel="stylesheet" href="{% static '/css/user_profile.css' %}">
 </head>
 <body>
     <!-- <div class="header">
@@ -28,7 +29,7 @@
         </div>
         <div id="logo-title">
             <h1>VRite4U</h1>
-            <img src="../images/logo.png">
+            <img src="{% static '/images/logo.png' %}">
 
         </div>
     </section>

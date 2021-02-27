@@ -112,7 +112,7 @@ padding-right: 20px;
 }
 
 #analyse-text{
-    background-color: #282828;
+    background-color: #403f3c;
     font-family: 'Poppins', sans-serif;
     float: left;
     
@@ -124,13 +124,13 @@ padding-right: 20px;
 }
 
 #analyse-text h6{
-    background-color:  #282828;
+    background-color:  #403f3c;
     margin-left: 20px;
 }
 
 mark{
     margin-left: 20px;
-    
+    margin-top: 20px;
  color: white;
 }
 
@@ -161,7 +161,7 @@ mark{
     border-radius: 50%;
    
     /* (C) BACKGROUND COLOR */
-    background: #888888;
+    background: #717273;
     text-align: center;
   }
   .circle-txt {
