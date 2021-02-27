@@ -49,8 +49,10 @@
     .context-menu ul li:hover { 
         background: darkgray; 
     } 
-    
-
+    #upload-button>input
+    {
+    display: none;
+    }
 
     #upload-button img
     {
@@ -132,7 +134,10 @@
                       <img src="{% static '/images/upload.png' %}">
                     </label>
                     <input type="file" id="notesfile" name="notesfile" class="form-control" style="display: none;"/>
-                    <input type="submit" style="float:left; margin-left:20px;" value="Load the file"/>
+                    <label for="load-file" style="float:left; margin-left:20px;">
+                      <img src="{% static '/images/loadbutton.png' %}">
+                    </label>
+                    <input type="submit" style="display: none" id="load-file" value="Load the file"/>
                   </form>
             </div>
 
@@ -188,9 +193,7 @@
             </div>
             <div class="button-img" >
               
-              <div style="margin-left:40px;margin-top:40px;float:left">
-                <img src="{% static '/images/download.png' %}" onclick="downloadfile();">
-              </div>
+              
               <div class="circle">
                 <p style="margin-top: 20px;"><strong>{{score}}/100</strong></p>
               </div>
