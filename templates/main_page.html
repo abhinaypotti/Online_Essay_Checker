@@ -51,10 +51,6 @@
     } 
     
 
-    #upload-button > input
-    {
-      display: none;
-    }
 
     #upload-button img
     {
@@ -96,7 +92,7 @@
       </nav>
      
       <div id="essay-content">
-        <form action="/../check" method="GET" enctype="multipart/form-data">
+        <form action="/../check" method="GET">          
           <div id="input-text" class="disp-text">
             
             <textarea placeholder="Type your essay here" name="para" id="tarea" >
@@ -104,23 +100,26 @@
             </textarea>
             <!-- <p contenteditable="true" name='para'>{{content}}</p> -->
             <!-- <input type="text" name="fun" /> -->
-            <div class="button-img" style="display:inline-flex;position:relative; margin-top:30px;">
-              
-              <div style="margin-left:40px;" id="upload-button">
-                  <img src="{% static '/images/upload.png' %}">
-                
-              </div>
-
-              <div style="margin-left:270px;" id="submit-button">  
-                <button type="submit" >
-                  <img src="{% static '/images/checkbutton.png' %}" />
-                </button>
-              </div>
-
+            
+            <div style="margin-left:350px;" id="submit-button">  
+              <button type="submit" >
+                <img src="{% static '/images/checkbutton.png' %}" />
+              </button>
+            </div>
+        </form>
+            <div style="margin-left:40px;" id="upload-button">
+                  
+                  <form action="/../upload_files" enctype="multipart/form-data" method="POST">
+                    {% csrf_token %}
+                    <label for="notesfile" style="float: left;">
+                      <img src="{% static '/images/upload.png' %}">
+                    </label>
+                    <input type="file" id="notesfile" name="notesfile" class="form-control" style="display: none;"/>
+                    <input type="submit" style="float:left; margin-left:20px;" value="Load the file"/>
+                  </form>
             </div>
 
-          </div>
-        </form>
+       
       </div>        
                 
               
@@ -191,8 +190,9 @@
     </div> 
     
     <script> 
-      document.onclick = hideMenu; 
-      document.oncontextmenu = rightClick; 
+      var txtarea=document.getElementById("tarea");
+      txtarea.onclick = hideMenu; 
+      txtarea.oncontextmenu = rightClick; 
 
       function hideMenu() { 
           document.getElementById( 

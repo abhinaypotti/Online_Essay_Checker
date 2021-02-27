@@ -64,6 +64,8 @@ def check(request):
     lis = []
     tool = language_tool_python.LanguageTool('en-US')
     p = request.GET['para']
+    p=p.lstrip()
+    p=p.rstrip()
     print(p)
     err_corr={}
     matches = tool.check(p)
@@ -76,7 +78,7 @@ def check(request):
             d['start']=rules.offset
             d['end']=rules.errorLength+rules.offset
             d['error_text']=p[rules.offset:rules.errorLength+rules.offset]
-            if(d['error_text']==' '):
+            if((d['error_text']=='')or(d['error_text']==' ')):
                 continue
             d['corr']=rules.replacements
             if((d['corr']==' ')or(len(d['corr'])==0)):
@@ -393,3 +395,13 @@ def getsyn(word):
     if(len(l)>5):
         l=l[:5]
     return l
+
+def upload_files(request):
+    p=""
+    if(request.method == "POST"):
+        n = request.FILES['notesfile']
+        p=n.read().decode('utf-8')
+        p=p.strip('\n')
+    #p = Notes()
+    #p.notesfile = n
+    return render(request,'main_page.html',{'content':p})
