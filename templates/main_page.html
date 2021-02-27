@@ -25,7 +25,7 @@
         position: absolute; 
         text-align: center; 
         background: lightgray; 
-        border: 1px solid black; 
+        /* border: 1px solid black;  */
     } 
     
     .context-menu ul { 
@@ -38,7 +38,7 @@
     .context-menu ul li { 
         padding-bottom: 7px; 
         padding-top: 7px; 
-        border: 1px solid black; 
+        /* border: 1px solid black;  */
     } 
     
     .context-menu ul li a { 
@@ -97,7 +97,9 @@
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
                       <!-- <form action="/../profile" method="GET" id="formpro"> -->
-                      <a class="dropdown-item" href="/../templates/user_profile.html?email={{email}}" >Profile</a>
+                      
+                        <!--<a class="dropdown-item" href="/../templates/user_profile.html?email={{email}}" >Profile</a>
+                      -->
                       <!-- <p name="email">{{email}}</p> -->
                       <!-- <a class="dropdown-item" href="{% url 'about' %}">About</a> -->
                       <!-- </form> -->
@@ -114,18 +116,20 @@
         <form action="/../check" method="GET">          
           <div id="input-text" class="disp-text">
             
-            <textarea placeholder="Type your essay here" name="para" id="tarea" >
+            <textarea placeholder="Type your essay here" name="para" id="tarea" style="padding-left: 40px;">
              {{content}}
             </textarea>
             <!-- <p contenteditable="true" name='para'>{{content}}</p> -->
             <!-- <input type="text" name="fun" /> -->
             
-            <div style="margin-left:350px;" id="submit-button">  
-              <button type="submit" >
-                <img src="{% static '/images/checkbutton.png' %}" />
+            <div id="submit-button" style="margin-left: 350px;">  
+              <button type="submit" style="background: url(../static/images/checkbutton.png); width: 88px; height: 35px; border-radius: 3px; border:none;" id = "dd">
+                <!-- <img src="{% static '/images/checkbutton.png' %}"  /> -->
               </button>
+              <br>
             </div>
         </form>
+       
             <div style="margin-left:40px;" id="upload-button">
                   
                   <form action="/../upload_files" enctype="multipart/form-data" method="POST">
@@ -159,14 +163,14 @@
               <ul style="margin-top:30px;list-style-type:none;" id="demo" class="collapse">
                 {% for rule,val in finals.items %}
                 <li>
-                  <img src="{% static '/images/wrong.png'%}" >
+                  <img src="{% static '/images/wrong.png'%}" style="border-radius:100%;" >
                   {{val.first}} <b>{{val.error_text}}</b> {{val.last}}
                   
 
                   <!-- Delectus iste autem odit eum ipsam similique veritatis aspernatur. -->
                 </li>
                 <li>
-                  <img src="{% static '/images/correct.png' %}" style="float:left;">
+                  <img src="{% static '/images/correct.png' %}" style="float:left; border-radius: 100%;">
                   {{val.corr}}
                 </li>
                 <br>
@@ -176,16 +180,16 @@
 
               <h6 data-toggle="collapse" data-target="#demo1"><strong>Themes Identified  <i class="fa fa-angle-down" style="font-size:24px;color:white"></i></strong> </h6>
               <br>
-              <div class="themes" id="demo1" class="collapse">
+              <div class="themes" id="demo1" class="collapse" style="margin-left: 40px;">
                 {% for theme in themes%}
-                <button type="button" class="btn btn-secondary" id="theme-id" onclick="findlink(this);" style="margin-top: 20px; margin: left 40px;">{{theme}}</button>
+                <button type="button" class="btn btn-secondary" id="theme-id" onclick="findlink(this);" style="margin-top: 10px; ">{{theme}}</button>
                 {% endfor %}
               </div>
               <h6 data-toggle="collapse" data-target="#demo2"><strong>Links Suggestion <i class="fa fa-angle-down" style="font-size:24px;color:white"></i></strong></h6>
               <br>
               <ul style="margin-left: 30px;list-style:none;" class="collapse" id="demo2">
               </ul>
-              <h6 data-toggle="collapse" data-target="#demo3"><strong>Synonyms/Phrases <i class="fa fa-angle-down" style="font-size:24px;color:white"></i></strong></h6>
+              <h6 data-toggle="collapse" data-target="#demo3"><strong>Related Synonyms/Phrases <i class="fa fa-angle-down" style="font-size:24px;color:white"></i></strong></h6>
               <br>
               <ul style="margin-left: 30px;list-style:none;" class="collapse" id="demo3">
               </ul>
@@ -212,9 +216,11 @@
     </div> 
     
     <script> 
-      var txtarea=document.getElementById("tarea");
+      var txtarea = document.getElementById("tarea");
       txtarea.onclick = hideMenu; 
       txtarea.oncontextmenu = rightClick; 
+
+
 
       function hideMenu() { 
           document.getElementById( 
